@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lbl_connection_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Connection State: "/>
+
+        <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="none"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect"/>
+
+    <Button
+        android:id="@+id/disconnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disconnect"/>
+
+
+    <Button
+        android:id="@+id/resetDevice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset Device"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/nfcValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="NFC STATE"/>
+
+        <Button
+            android:id="@+id/setNFC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set NFC State"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/syncData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sync data"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_device_info"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Device Info"/>
+
+        <Button
+            android:id="@+id/getDevice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Read Device Info"/>
+
+    </LinearLayout>
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dip" >
+
+        <TextView
+            android:id="@+id/lbl_manufacturer_name"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/table_column_left_margin"
+            android:text="Manufacturer Name:"/>
+        <TextView
+            android:id="@+id/manufacturer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/table_column_left_margin"
+            />
+
+        <TextView
+            android:id="@+id/lbl_model_number"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/table_column_left_margin"
+            android:text="Model Number:"/>
+        <TextView
+            android:id="@+id/model_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/table_column_left_margin"
+            />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dip" >
+
+            <TextView
+                android:id="@+id/lbl_serial_number"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                android:text="Serial Number:"/>
+            <TextView
+                android:id="@+id/serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                />
+
+            <TextView
+                android:id="@+id/lbl_system_id"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                android:text="System Id:"/>
+            <TextView
+                android:id="@+id/system_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dip" >
+
+            <TextView
+                android:id="@+id/lbl_firmware_number"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                android:text="Firmware Number:"/>
+            <TextView
+                android:id="@+id/firmware_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                />
+
+            <TextView
+                android:id="@+id/lbl_hardware_revision"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                android:text="Hardware Revision:"/>
+            <TextView
+                android:id="@+id/hardware_revision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dip" >
+
+            <TextView
+                android:id="@+id/lbl_software_revision"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                android:text="Software Revision:"/>
+            <TextView
+                android:id="@+id/software_revision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/table_column_left_margin"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_apdu_result"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APDU Result"/>
+
+        <EditText
+            android:id="@+id/apduValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="apdu value"/>
+
+        <Button
+            android:id="@+id/loadApduPackage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load Apdu Package"/>
+
+        <Button
+                android:id="@+id/sendApdu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Execute Apdu Package"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/apduArea"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines = "30"
+        android:scrollbars = "vertical"/>
+
+</LinearLayout>

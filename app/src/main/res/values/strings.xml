@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">FitPay Sample Client</string>
+
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="user_name">UserName</string>
+    <string name="user_id">UserId</string>
+    <string name="devices">DEVICES</string>
+    <string name="credit_cards">CREDITCARDS</string>
+    <string name="title_activity_user">User</string>
+    <string name="title_activity_transactions">Transactions</string>
+    <string name="title_activity_devices">Devices</string>
+    <string name="title_activity_device">Device</string>
+    <string name="title_activity_credit_cards">CreditCards</string>
+    <string name="title_activity_credit_card">CreditCard</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="card_name">card name</string>
+    <string name="card_id">card id</string>
+    <string name="card_number">card number</string>
+    <string name="accept_terms">accept terms</string>
+    <string name="decline_terms">decline terms</string>
+    <string name="transactions">transactions</string>
+    <string name="device_name">device name</string>
+    <string name="device_id">device id</string>
+    <string name="user">USER</string>
+    <string name="get_commits">GET COMMITS</string>
+    <string name="card_type">cardType</string>
+    <string name="is_default">isDefault</string>
+    <string name="state">state</string>
+    <string name="exp_month">exp month</string>
+    <string name="exp_year">exp year</string>
+
+</resources>

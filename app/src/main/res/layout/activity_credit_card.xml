@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CreditCardActivity">
+
+    <LinearLayout
+        android:id="@+id/titles"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/card_type_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_type"/>
+
+        <TextView
+            android:id="@+id/card_name_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_name"/>
+
+        <TextView
+            android:id="@+id/card_id_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_id"/>
+
+        <TextView
+            android:id="@+id/card_number_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_number"/>
+
+        <TextView
+            android:id="@+id/card_default_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/is_default"/>
+
+        <TextView
+            android:id="@+id/card_state_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/state"/>
+
+        <TextView
+            android:id="@+id/card_exp_month_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exp_month"/>
+
+        <TextView
+            android:id="@+id/card_exp_year_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exp_year"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/titles">
+
+        <TextView
+            android:id="@+id/card_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/card_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/card_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/card_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/card_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/card_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/card_exp_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/card_exp_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accept_terms"
+        android:layout_below="@id/titles"/>
+
+    <Button
+        android:id="@+id/btn_decline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/decline_terms"
+        android:layout_below="@id/btn_accept"/>
+
+    <Button
+        android:id="@+id/btn_transactions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/transactions"
+        android:layout_below="@id/btn_decline"/>
+
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:id="@+id/progress"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        style="?android:attr/progressBarStyleSmall"
+        android:indeterminate="true"
+        android:visibility="visible"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
