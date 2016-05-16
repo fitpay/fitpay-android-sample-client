@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.fitpay.android.api.callbacks.ApiCallback;
@@ -23,13 +24,25 @@ public class CreditCardsActivity extends AppCompatActivity {
     private List<CreditCard> collection;
     private View progress;
     private ListView listView;
+    private Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_cards);
 
+        addBtn = (Button) findViewById(R.id.btn_add);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreditCardsActivity.this, CreditCardCreateActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
+
         progress = findViewById(R.id.progress_devices);
+
         listView = (ListView) findViewById(R.id.list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -42,6 +55,9 @@ public class CreditCardsActivity extends AppCompatActivity {
     }
 
     private void getCreditCards() {
+        if (null == user) {
+            return;
+        }
         showProgress(true);
         user.getCreditCards(10, 0, new ApiCallback<Collections.CreditCardCollection>() {
             @Override
@@ -65,7 +81,7 @@ public class CreditCardsActivity extends AppCompatActivity {
         if (collection == null) {
             List<CreditCard> creditCards = new ArrayList<>();
             for (int i = 0; i < 12; i++) {
-                CreditCard testCard = new CreditCard.Builder().setName("CreditCard " + i).create();
+                CreditCard testCard = new CreditCard.Builder().setName("CreditCard " + i).build();
                 creditCards.add(testCard);
             }
 
@@ -86,4 +102,5 @@ public class CreditCardsActivity extends AppCompatActivity {
         listView.setVisibility(value ? View.GONE : View.VISIBLE);
         progress.setVisibility(value ? View.VISIBLE : View.GONE);
     }
+
 }

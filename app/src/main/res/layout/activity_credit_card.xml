@@ -119,6 +119,12 @@
 
     </LinearLayout>
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@id/titles">
+
     <Button
         android:id="@+id/btn_accept"
         android:layout_width="wrap_content"
@@ -131,14 +137,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/decline_terms"
-        android:layout_below="@id/btn_accept"/>
+        android:layout_toRightOf="@id/btn_accept"/>
+
+    <Button
+        android:id="@+id/btn_deactivate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deactivate"
+        android:layout_toRightOf="@id/btn_decline"/>
+
+    <Button
+        android:id="@+id/btn_reactivate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reactivate"
+        android:layout_toRightOf="@id/btn_deactivate"/>
+
+    <Button
+        android:id="@+id/btn_make_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/make_default"
+        android:layout_toRightOf="@id/btn_reactivate"/>
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:layout_toRightOf="@id/btn_make_default"/>
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:layout_toRightOf="@id/btn_update"/>
 
     <Button
         android:id="@+id/btn_transactions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/transactions"
-        android:layout_below="@id/btn_decline"/>
+        android:layout_toRightOf="@id/btn_delete"/>
+
+    </LinearLayout>
 
     <android.support.v4.widget.ContentLoadingProgressBar
         android:id="@+id/progress"
