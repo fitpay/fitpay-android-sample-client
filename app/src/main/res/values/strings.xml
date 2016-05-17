@@ -12,15 +12,27 @@
     <string name="title_activity_transactions">Transactions</string>
     <string name="title_activity_devices">Devices</string>
     <string name="title_activity_device">Device</string>
-    <string name="title_activity_credit_cards">CreditCards</string>
-    <string name="title_activity_credit_card">CreditCard</string>
+    <string name="title_activity_credit_cards">Credit Cards</string>
+    <string name="title_activity_credit_card">Credit Card</string>
+    <string name="title_activity_credit_card_create">Add Credit Card</string>
+    <string name="title_activity_device_pairing">Pair Device</string>
+    <string name="title_activity_device_create">Add Device</string>
 
     <string name="action_settings">Settings</string>
-    <string name="card_name">card name</string>
-    <string name="card_id">card id</string>
-    <string name="card_number">card number</string>
+
+    <string name="card_data_title">Credit Card Information</string>
+    <string name="card_name">Card Name</string>
+    <string name="card_id">Card ID</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_cvv">Card CVV</string>
+
     <string name="accept_terms">accept terms</string>
     <string name="decline_terms">decline terms</string>
+    <string name="reactivate">reactivate</string>
+    <string name="deactivate">deactivate</string>
+    <string name="make_default">make default</string>
+    <string name="update">update</string>
+    <string name="delete">delete</string>
     <string name="transactions">transactions</string>
     <string name="device_name">device name</string>
     <string name="device_id">device id</string>
@@ -28,8 +40,27 @@
     <string name="get_commits">GET COMMITS</string>
     <string name="card_type">cardType</string>
     <string name="is_default">isDefault</string>
-    <string name="state">state</string>
+
+    <string name="billing_address">Billing address</string>
+    <string name="street1">Street 1</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="country_code">Country Code</string>
+
     <string name="exp_month">exp month</string>
     <string name="exp_year">exp year</string>
+
+    <string name="add">Add Card</string>
+    <string name="add_device">Pair new device</string>
+    <string name="cancel">cancel</string>
+
+    <string name="sync">Sync with Payment Device</string>
+
+
+    <string name="populate_visa">Populate with Visa PAN</string>
+    <string name="populate_mastercard">Populate with Visa PAN</string>
+    <string name="populate_amex">Populate with American Express PAN</string>
+    <string name="populate_discover">Populate with Discover PAN</string>
 
 </resources>

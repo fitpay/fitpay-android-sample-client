@@ -49,8 +49,35 @@
         </activity>
 
         <activity
+            android:name=".CreditCardCreateActivity"
+            android:label="@string/title_activity_credit_card_create"
+            android:parentActivityName=".CreditCardsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fitpay.fitpaysampleclient.CreditCardsActivity"/>
+        </activity>
+
+        <activity
             android:name=".DeviceActivity"
             android:label="@string/title_activity_device"
+            android:parentActivityName=".DevicesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fitpay.fitpaysampleclient.DevicesActivity"/>
+        </activity>
+
+        <activity
+            android:name=".DevicePairingActivity"
+            android:label="@string/title_activity_device_pairing"
+            android:parentActivityName=".DevicesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fitpay.fitpaysampleclient.DevicesActivity"/>
+        </activity>
+
+        <activity
+            android:name=".DeviceCreateActivity"
+            android:label="@string/title_activity_device_create"
             android:parentActivityName=".DevicesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

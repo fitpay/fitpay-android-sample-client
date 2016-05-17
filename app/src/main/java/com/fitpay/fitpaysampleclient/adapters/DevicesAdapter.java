@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.fitpay.android.api.models.device.Device;
+import com.fitpay.android.paymentdevice.utils.DevicePreferenceData;
 import com.fitpay.fitpaysampleclient.R;
 
 import java.util.List;
@@ -20,12 +21,12 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
 
     private final int layoutId;
     private final LayoutInflater layoutInflater;
-    private final List<Device> devices;
+    //private final List<Device> devices;
 
     public DevicesAdapter(Context context, int resource, List<Device> objects) {
         super(context, resource, objects);
         layoutId = resource;
-        devices = objects;
+        //devices = objects;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -39,21 +40,41 @@ public class DevicesAdapter extends ArrayAdapter<Device> {
             convertView = layoutInflater.inflate(layoutId, parent, false);
             holder = new ViewHolder();
             holder.deviceName = (TextView) convertView.findViewById(R.id.item_name);
-            holder.deviceNumber = (TextView) convertView.findViewById(R.id.item_number);
+            holder.deviceId = (TextView) convertView.findViewById(R.id.item_number);
+            holder.description = (TextView) convertView.findViewById(R.id.item_description);
+            holder.serialNumber = (TextView) convertView.findViewById(R.id.item_serial_number);
+            holder.pairedStatus = (TextView) convertView.findViewById(R.id.item_paired_status);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         holder.deviceName.setText(device.getDeviceName());
-        holder.deviceNumber.setText(device.getOsName());
+        holder.deviceId.setText(device.getDeviceIdentifier());
+        holder.description.setText(device.getManufacturerName() + " " + device.getModelNumber());
+        holder.serialNumber.setText(device.getSerialNumber());
+        DevicePreferenceData data = DevicePreferenceData.loadFromPreferences(this.getContext(), device.getDeviceIdentifier());
+        String pairDescription = "Not Paired";
+        if (null != data && null != data.getPaymentDeviceServiceType()) {
+            pairDescription = "Paired " + data.getPaymentDeviceServiceType();
+        }
+        holder.pairedStatus.setText(pairDescription);
 
         return convertView;
     }
 
+    protected void getDevicePreferences(String deviceId) {
+        getContext().getSharedPreferences("paymentDevice_" + deviceId, Context.MODE_PRIVATE);
+
+
+    }
+
     private static class ViewHolder {
         TextView deviceName;
-        TextView deviceNumber;
+        TextView deviceId;
+        TextView description;
+        TextView serialNumber;
+        TextView pairedStatus;
     }
 
 }

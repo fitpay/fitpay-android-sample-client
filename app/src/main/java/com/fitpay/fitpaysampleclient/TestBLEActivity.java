@@ -111,7 +111,7 @@ public class TestBLEActivity extends AppCompatActivity {
         apduArea.setText(getTestApduPackage());
 
         Intent gattIntent = new Intent(this, DeviceService.class);
-        bindService(gattIntent, gattConnection, BIND_AUTO_CREATE);
+        bindService(gattIntent, paymentServiceConnection, BIND_AUTO_CREATE);
 
 
         Intent intent = getIntent();
@@ -225,7 +225,7 @@ public class TestBLEActivity extends AppCompatActivity {
             deviceService.disconnect();
         }
 
-        unbindService(gattConnection);
+        unbindService(paymentServiceConnection);
         deviceService = null;
 
     }
@@ -257,7 +257,8 @@ public class TestBLEActivity extends AppCompatActivity {
                 switch (paymentDeviceType) {
                     case "MockDevice": {
                         Log.d(TAG, "Creating new mock payment device");
-                        paymentDevice = new MockPaymentDeviceService(getApplicationContext(), null);
+                        paymentDevice = new MockPaymentDeviceService();
+                        break;
                     }
                     default: {  // bluetooth device
                         if (null != bluetoothDevice) {
@@ -280,7 +281,7 @@ public class TestBLEActivity extends AppCompatActivity {
         }
     }
 
-    private final ServiceConnection gattConnection = new ServiceConnection() {  //TODO figure this out - it is NOT a gattConnection it is a payment device service binding
+    private final ServiceConnection paymentServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             status.setText("Payment device service connected");

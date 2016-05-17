@@ -8,29 +8,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DevicesActivity">
+    tools:context=".DeviceActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
 
     <Button
-        android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_device"
-        />
-
-    <ListView
-        android:id="@+id/list"
+        android:id="@+id/btn_find_ble"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:text="Find BLE Device"/>
+
+    <Button
+        android:id="@+id/btn_use_mock_device"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_find_ble"
+        android:text="Use Mock Device"/>
 
     <android.support.v4.widget.ContentLoadingProgressBar
-        android:id="@+id/progress_devices"
+        android:id="@+id/progress"
         android:layout_width="48dp"
         android:layout_height="48dp"
         style="?android:attr/progressBarStyleSmall"
