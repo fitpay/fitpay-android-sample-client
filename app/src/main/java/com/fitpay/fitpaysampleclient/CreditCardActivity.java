@@ -88,7 +88,7 @@ public class CreditCardActivity extends AppCompatActivity {
         makeDefaultBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CreditCardActivity.this, "Not implemented", Toast.LENGTH_LONG).show();
+                makeDefault();
             }
         });
         updateBtn.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +143,7 @@ public class CreditCardActivity extends AppCompatActivity {
                 currentCard = result;
                 setCardInfo(currentCard);
                 showProgress(false);
-                //todo show success
+                Toast.makeText(CreditCardActivity.this, "Card terms accepted", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -162,7 +162,7 @@ public class CreditCardActivity extends AppCompatActivity {
                 currentCard = result;
                 setCardInfo(currentCard);
                 showProgress(false);
-                //todo show success
+                Toast.makeText(CreditCardActivity.this, "Card terms declined", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -178,10 +178,11 @@ public class CreditCardActivity extends AppCompatActivity {
         currentCard.deleteCard(new ApiCallback<Void>() {
             @Override
             public void onSuccess(Void result) {
-                getSelfCreditCard();
-                setCardInfo(currentCard);
+                // can not get card to refresh data - so do manually
+                tvCardState.setText("DELETED");
                 showProgress(false);
-                //todo show success
+                enableActions(false);
+                Toast.makeText(CreditCardActivity.this, "Card deleted", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -203,7 +204,7 @@ public class CreditCardActivity extends AppCompatActivity {
                 currentCard = result;
                 setCardInfo(currentCard);
                 showProgress(false);
-                //todo show success
+                Toast.makeText(CreditCardActivity.this, "Card deactivated", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -225,8 +226,8 @@ public class CreditCardActivity extends AppCompatActivity {
                 currentCard = result;
                 setCardInfo(currentCard);
                 showProgress(false);
-                //todo show success
-            }
+                Toast.makeText(CreditCardActivity.this, "Card reactivated", Toast.LENGTH_LONG).show();
+           }
 
             @Override
             public void onFailure(@ResultCode.Code int errorCode, String errorMessage) {
@@ -236,6 +237,23 @@ public class CreditCardActivity extends AppCompatActivity {
         });
     }
 
+    private void makeDefault() {
+        showProgress(true);
+        currentCard.makeDefault(new ApiCallback<Void>() {
+            @Override
+            public void onSuccess(Void result) {
+                // need to refresh the card data
+                getSelfCreditCard();
+                Toast.makeText(CreditCardActivity.this, "Card designated as default card", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(@ResultCode.Code int errorCode, String errorMessage) {
+                Toast.makeText(CreditCardActivity.this, "Deactivate was not successful.  Reason: " + errorMessage, Toast.LENGTH_LONG).show();
+                showProgress(false);
+            }
+        });
+    }
 
     private void setCardInfo(CreditCard creditCard) {
         currentCard = creditCard;
@@ -251,12 +269,11 @@ public class CreditCardActivity extends AppCompatActivity {
     }
 
     private void showProgress(boolean value) {
-        acceptBtn.setVisibility(value ? View.GONE : View.VISIBLE);
-        declineBtn.setVisibility(value ? View.GONE : View.VISIBLE);
-        transactionsBtn.setVisibility(value ? View.GONE : View.VISIBLE);
         progress.setVisibility(value ? View.VISIBLE : View.GONE);
         if (!value) {
             enableAvailableActions();
+        } else {
+            enableActions(false);
         }
     }
 
@@ -266,7 +283,19 @@ public class CreditCardActivity extends AppCompatActivity {
         deactivateBtn.setEnabled(currentCard.canDeactivate());
         reactivateBtn.setEnabled(currentCard.canReactivate());
         makeDefaultBtn.setEnabled(currentCard.canMakeDefault());
+        updateBtn.setEnabled(currentCard.canUpdateCard());
         deleteBtn.setEnabled(currentCard.canDelete());
         transactionsBtn.setEnabled(currentCard.canGetTransactions());
+    }
+
+    private void enableActions(boolean enable) {
+        acceptBtn.setEnabled(enable);
+        declineBtn.setEnabled(enable);
+        deactivateBtn.setEnabled(enable);
+        reactivateBtn.setEnabled(enable);
+        makeDefaultBtn.setEnabled(enable);
+        updateBtn.setEnabled(enable);
+        deleteBtn.setEnabled(enable);
+        transactionsBtn.setEnabled(enable);
     }
 }

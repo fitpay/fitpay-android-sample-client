@@ -85,7 +85,7 @@ public class DeviceCreateActivity extends AppCompatActivity {
             }
         });
 
-        user = getIntent().getParcelableExtra("user");
+        user = (User) SessionStorage.getInstance().getData("user");
 
         Intent deviceServiceIntent = new Intent(this, DeviceService.class);
         bindService(deviceServiceIntent, paymentServiceConnection, BIND_AUTO_CREATE);

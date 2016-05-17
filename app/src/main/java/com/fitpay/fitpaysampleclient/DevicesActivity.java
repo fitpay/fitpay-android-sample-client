@@ -37,7 +37,7 @@ public class DevicesActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.list);
         addBtn = (Button) findViewById(R.id.btn_add);
 
-        user = getIntent().getParcelableExtra("user");
+        user = (User) SessionStorage.getInstance().getData("user");
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override

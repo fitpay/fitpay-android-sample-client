@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(User result) {
                 setUserInfo(result);
+                SessionStorage.getInstance().putData("user", result);
                 showProgress(false);
             }
 

@@ -50,7 +50,7 @@ public class CreditCardsActivity extends AppCompatActivity {
                 goToCreditCard(position);
             }
         });
-        user = getIntent().getParcelableExtra("user");
+        user = (User) SessionStorage.getInstance().getData("user");
         getCreditCards();
     }
 
