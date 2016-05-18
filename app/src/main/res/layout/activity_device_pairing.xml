@@ -22,7 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_find_ble"
-        android:text="Use Mock Device"/>
+        android:text="Mock Device"/>
+
+    <Button
+        android:id="@+id/btn_use_pebble_pagare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_use_mock_device"
+        android:text="Pebble with Pagare Smart Strap"/>
 
     <android.support.v4.widget.ContentLoadingProgressBar
         android:id="@+id/progress"

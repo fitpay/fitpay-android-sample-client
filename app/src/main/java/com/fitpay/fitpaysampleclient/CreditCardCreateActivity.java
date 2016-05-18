@@ -58,6 +58,8 @@ public class CreditCardCreateActivity extends AppCompatActivity {
         tvPostalCode = (EditText) findViewById(R.id.postal_code);
         tvCountryCode = (EditText) findViewById(R.id.country_code);
 
+        tvCountryCode.setText("US");
+
         progress = findViewById(R.id.progress);
 
         addBtn = (Button) findViewById(R.id.btn_add);
@@ -126,7 +128,7 @@ public class CreditCardCreateActivity extends AppCompatActivity {
             public void onSuccess(CreditCard result) {
                 creditCard = result;
                 showProgress(false);
-                //todo show success
+                Toast.makeText(CreditCardCreateActivity.this, "Card created", Toast.LENGTH_LONG).show();
             }
 
             @Override

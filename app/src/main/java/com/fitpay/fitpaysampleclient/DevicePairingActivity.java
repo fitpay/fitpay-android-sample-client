@@ -29,6 +29,10 @@ public class DevicePairingActivity extends AppCompatActivity {
     @Bind(R.id.btn_use_mock_device)
     Button btnUseMock;
 
+    @Bind(R.id.btn_use_pebble_pagare)
+    Button btnUsePebblePagare;
+
+
     private BluetoothDevice bluetoothDevice;
     private User user;
 
@@ -57,7 +61,18 @@ public class DevicePairingActivity extends AppCompatActivity {
             }
         });
 
-        user = getIntent().getParcelableExtra("user");
+        btnUsePebblePagare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent deviceServiceIntent = new Intent(DevicePairingActivity.this, DeviceService.class);
+                deviceServiceIntent.putExtra(DeviceService.EXTRA_PAYMENT_SERVICE_TYPE, "com.fitpay.android.paymentdevice.impl.pagare.PebblePagarePaymentServiceDevice");
+                deviceServiceIntent.putExtra(DeviceService.EXTRA_PAYMENT_SERVICE_CONFIG, "PEBBLE_APP_UUID=8c570c67-13cc-4778-a15b-5fade088e269");
+                startService(deviceServiceIntent);
+                gotoCreateDevice();
+            }
+        });
+
+        user = (User) SessionStorage.getInstance().getData("user");
 
     }
 
